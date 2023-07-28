@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp_NestedFlexLayoutNoEvents.MainPage">
+
+    <VerticalStackLayout>
+        <Frame HeightRequest="25" Padding="0">
+            <Label Text="Flex layout around button."></Label>
+        </Frame>
+
+        <ListView x:Name="list" SelectionMode="None" ItemTapped="list_ItemTapped" RowHeight="50">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <ViewCell>
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="15, 0">
+                            <Button Text="Register in Azure Hub" Clicked="Button_Clicked"></Button>
+                            <Label Text="{Binding .}"></Label>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame HeightRequest="25" Padding="0">
+            <Label Text="Flex layout around image."></Label>
+        </Frame>
+
+        <ListView x:Name="list2" SelectionMode="None" ItemTapped="list_ItemTapped" RowHeight="50">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <ViewCell>
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="15, 0">
+                            <Image Source="dotnet_bot.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="{Binding .}"></Label>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame HeightRequest="25" Padding="0">
+            <Label Text="Double nested flex layout around button."></Label>
+        </Frame>
+
+        <ListView x:Name="list3" SelectionMode="None" ItemTapped="list_ItemTapped" RowHeight="50">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <ViewCell>
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="15, 0">
+                            <FlexLayout Direction="Row">
+                                <Button Text="ClickMe" Clicked="Button_Clicked"></Button>
+                            </FlexLayout>
+                            <Label Text="{Binding .}"></Label>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame HeightRequest="25" Padding="0">
+            <Label Text="Double nested flex layout around image."></Label>
+        </Frame>
+
+        <ListView x:Name="list4" SelectionMode="None" ItemTapped="list_ItemTapped" RowHeight="50">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <ViewCell>
+                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" Margin="15, 0">
+                            <FlexLayout Direction="Row">
+                                <Image Source="dotnet_bot.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </FlexLayout>
+                            <Label Text="{Binding .}"></Label>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
